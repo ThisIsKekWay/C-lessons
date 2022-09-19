@@ -1,4 +1,6 @@
-﻿Console.Clear();
+﻿// Вывести третью цифру числа с любой разрядностью.
+
+Console.Clear();
 
 int Third(int number)
 {
