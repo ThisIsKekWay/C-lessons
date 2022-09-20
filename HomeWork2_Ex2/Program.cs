@@ -8,17 +8,27 @@ int Third(int number)
     while(count < 2)
     {
         number = number / 10;
-        count += 1;        
+        count += 1;
     }
-    int result = number % 10;
+    
+    int result = 0;
+
+    if(number / 10 == 0)
+    {
+        result = -1;
+    }
+    else
+    {
+        result = number % 10;
+    }
     return result;
 }
 
 
 Console.WriteLine("Введите число");
-int num = Math.Abs(int.Parse(Console.ReadLine()));
+int num = Math.Abs(int.Parse(Console.ReadLine()!));
 
-if(Third(num) == 0)
+if(Third(num) == -1)
 {
     Console.WriteLine("Третьей цифры нет");
 }
