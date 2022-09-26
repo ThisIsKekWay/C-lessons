@@ -1,4 +1,4 @@
-﻿/* Console.Clear();
+﻿Console.Clear();
 
 Console.WriteLine("Введите число");
 int num = int.Parse(Console.ReadLine());
@@ -10,7 +10,7 @@ while(count <= num)
         Console.Write($"{count} ");
         count ++;
     }
- */
+
 
 /* Console.WriteLine("Введите число");
 int Num = Math.Abs(int.Parse(Console.ReadLine()));
