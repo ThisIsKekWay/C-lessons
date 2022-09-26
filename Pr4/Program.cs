@@ -111,7 +111,7 @@ Console.WriteLine(Count(array));
 
 int[] CreateArray()
 {
-    int[] array = new int [10];
+    int[] array = new int [new Random().Next(10,12)];
     return array;
 }
 
@@ -146,7 +146,7 @@ int[] Multiply(int[] array)
         }
         else
         {
-            result[i] = array[i] * array[(array.Length - 1) - 1 * i];
+            result[i] = array[i] * array[(array.Length - 1) - i];
         }
     }
     return result;
@@ -154,7 +154,7 @@ int[] Multiply(int[] array)
 
 
 int[] array = CreateArray();
-/* FillArray(array); */
+FillArray(array);
 Console.WriteLine(String.Join(", ", array));
 Console.WriteLine();
 Console.WriteLine(String.Join(", ", Multiply(array)));
