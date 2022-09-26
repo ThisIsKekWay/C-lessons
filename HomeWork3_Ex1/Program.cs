@@ -13,14 +13,7 @@ bool IsPalindrom(int number)
         index ++;
     }
 
-    if (array[0] == array[4] & array[1] == array[3])
-    {
-        return true;
-    }    
-    else
-    {
-        return false;
-    }
+    return (array[0] == array[4] & array[1] == array[3]);
 }
 
 
