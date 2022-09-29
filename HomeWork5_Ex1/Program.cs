@@ -13,7 +13,7 @@ void FillArray(int[] collection)
     int index = 0;
     while (index < length)
     {
-        collection[index] = new Random().Next(-500, 501);
+        collection[index] = new Random().Next(100, 1000);
         index ++;
     }
 }
