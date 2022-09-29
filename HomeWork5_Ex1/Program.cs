@@ -18,7 +18,7 @@ void FillArray(int[] collection)
     }
 }
 
-int CountOdd(int[] array)
+int CountEven(int[] array)
 {
     int result = 0;
     for (int i = 0; i < array.Length; i++)
@@ -31,5 +31,5 @@ int CountOdd(int[] array)
 int[] array = CreateArray();
 FillArray(array);
 
-Console.WriteLine($"В массиве {String.Join(", ", array)} число четных элементов равно {CountOdd(array)}");
+Console.WriteLine($"В массиве {String.Join(", ", array)} число четных элементов равно {CountEven(array)}");
 
