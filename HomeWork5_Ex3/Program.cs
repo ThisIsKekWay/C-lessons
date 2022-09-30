@@ -9,15 +9,11 @@ void FillArray(double[] collection)
     int index = 0;
     while (index < collection.Length)
     {
-        collection[index] = new Random().Next(100, 1000);
+        collection[index] = new Random().Next(-10000, 10001) * 0.001;
+        collection[index] = Math.Round(collection[index], 2);
         index ++;
     }
 }
-
-// Попытался сделать две функции. Одна на поиск минимума и максимума,
-// а вторая на подсчет разницы. Но пока что не умею выводить из функции два результата разом.
-// Нашел примеры, однако мне они не понравились. Поэтому пришлось нарушить вашу рекомендацию
-// "Одна функция - одно действие".
 
 double DifferenceMinMax(double[] array)
 {
@@ -35,10 +31,11 @@ double DifferenceMinMax(double[] array)
         }
     }
 
-    return max - min; 
+    return Math.Round(max - min, 2); 
 }
 
 double[] array = CreateArray();
 FillArray(array);
 
-Console.WriteLine($"В массиве {String.Join(", ", array)} разница между максимумом и минимумом равна {DifferenceMinMax(array)}");
+Console.WriteLine();
+Console.WriteLine($"В массиве {String.Join(" | ", array)} разница между максимумом и минимумом равна {DifferenceMinMax(array)}");
