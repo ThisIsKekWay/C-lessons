@@ -2,22 +2,35 @@
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
 
 Console.Clear();
-int[,] CreateArray(int rows, int coloumns)
+int[,] CreateArray()
 {
-    int[,] result = new int[rows, coloumns];
+    int[,] result = new int[new Random().Next(2, 6), new Random().Next(2, 6)];
     return result;
 }
 
 int[,] FillArray(int[,] array)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
+   for (int i = 0; i < array.GetLength(0); i++)
+   {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(-5, 6);
+            array[i, j] = new Random().Next(-10, 11);
         }
+   }
+
+   return array;
+}
+
+int IsInArray(int[,] array, int rows, int coloumns)
+{
+    if (rows > array.GetLength(0) || coloumns > array.GetLength(1))
+    {
+        return -1;
     }
-    return array;
+    else
+    {
+        return array[rows, coloumns];
+    }
 }
 
 void PrintArray(int[,] array)
@@ -28,41 +41,27 @@ void PrintArray(int[,] array)
         {
             Console.Write($" {array[i, j]} ");
         }
-    
     Console.WriteLine();
     }
 }
 
-void IsInArray(int[,] array, int seek)
+int[,] collection = CreateArray();
+
+collection = FillArray(collection);
+
+PrintArray(collection);
+
+Console.Write("Введите координату Х: ");
+int row = int.Parse(Console.ReadLine()!);
+
+Console.Write("Введите координату Y: ");
+int coloumn = int.Parse(Console.ReadLine()!);
+
+if (IsInArray(collection, row, coloumn) == -1)
 {
-    int answ = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if(array[i, j] == seek)
-            {
-                answ += 2;
-                Console.WriteLine($"Совпадение на позиции {i + 1}, {j + 1}");
-            }
-            else
-            {
-                answ--;
-            }
-        }
-    }
+    Console.WriteLine($"По введенным координатам [{row}, {coloumn}] ничего нет");
 }
-
-Console.Write("Введите количество строк: ");
-int rows = int.Parse(Console.ReadLine()!);
-
-Console.Write("Введите количество столбцов: ");
-int coloumns = int.Parse(Console.ReadLine()!);
-
-Console.Write("Введите искомое число: ");
-int seeking = int.Parse(Console.ReadLine()!);
-
-int[,] nums = CreateArray(rows, coloumns);
-nums = FillArray(nums);
-PrintArray(nums);
-IsInArray(nums, seeking);
+else
+{
+    Console.WriteLine($"По введенным координатам [{row}, {coloumn}] хранится число {IsInArray(collection, row, coloumn)}");
+}
