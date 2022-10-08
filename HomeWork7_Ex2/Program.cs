@@ -23,13 +23,17 @@ int[,] FillArray(int[,] array)
 
 int IsInArray(int[,] array, int rows, int coloumns)
 {
-    if (rows > array.GetLength(0) || coloumns > array.GetLength(1))
+    if( rows <= 0 || coloumns <= 0)
+    {
+        return -1;
+    }
+    else if (rows - 1 < array.GetLength(0) ^ coloumns - 1 < array.GetLength(1))
     {
         return -1;
     }
     else
     {
-        return array[rows, coloumns];
+        return array[rows - 1, coloumns -1];
     }
 }
 
@@ -59,7 +63,7 @@ int coloumn = int.Parse(Console.ReadLine()!);
 
 if (IsInArray(collection, row, coloumn) == -1)
 {
-    Console.WriteLine($"По введенным координатам [{row}, {coloumn}] ничего нет");
+    Console.WriteLine($"По введенным координатам ничего нет, либо данные не корректны");
 }
 else
 {
