@@ -5,18 +5,29 @@ void FillSpiral(int[,] matrix, int row = 0, int col = 0, int num = 1)
     {
         matrix[row, col] = num;
         num++;
+        FillSpiral(matrix, row, col + 1, num); // Вправо 1
+    }
 
-        if (col == 0 && row == 2) // Костыль, который призван убирать преждевременное срабатывание движения вправо
-                                  // С позиции [0.2]  
+    if (((col > -1 && col < 4) && (row > -1 && row < 4)) && matrix[row, col] == 0)
         {
             FillSpiral(matrix, row - 1, col, num);
         }
 
-        FillSpiral(matrix, row, col + 1, num); // Вправо
-        FillSpiral(matrix, row + 1, col, num); // Вниз
-        FillSpiral(matrix, row, col - 1, num); // Влево
-        FillSpiral(matrix, row - 1, col, num); // Вверх
+    if (((col > -1 && col < 4) && (row > -1 && row < 4)) && matrix[row, col] == 0)
+    {
+        matrix[row, col] = num;
+        num++;
+        FillSpiral(matrix, row, col - 1, num); // Влево 3
     }
+
+    if (((col > -1 && col < 4) && (row > -1 && row < 4)) && matrix[row, col] == 0)
+    {
+        matrix[row, col] = num;
+        num++;
+        FillSpiral(matrix, row - 1, col, num); // Вверх 4
+    }
+
+
 }
 
 void PrintArray(int[,] array)

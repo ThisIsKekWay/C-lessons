@@ -109,7 +109,7 @@ Console.WriteLine(String.Join(", ", array));
 Console.WriteLine(Count(array));
  */
 
-int[] CreateArray()
+/* int[] CreateArray()
 {
     int[] array = new int [new Random().Next(10,12)];
     return array;
@@ -158,3 +158,4 @@ FillArray(array);
 Console.WriteLine(String.Join(", ", array));
 Console.WriteLine();
 Console.WriteLine(String.Join(", ", Multiply(array)));
+ */

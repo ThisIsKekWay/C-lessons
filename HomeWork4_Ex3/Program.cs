@@ -27,3 +27,4 @@ void FillArray(int[] collection)
 int[] array = CreateArray();
 FillArray(array);
 Console.WriteLine(String.Join(", ", array));
+
