@@ -1,8 +1,15 @@
-﻿Random generator = new Random();
+﻿Console.Clear();
 
-int[] CreateData()
+Random generator = new Random();
+
+int[] CreateData(int[] array)
 {
-    int[] result = new int[generator.Next(10, 16)];
+    int sum = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        sum += array[i];
+    }
+    int[] result = new int[sum];
     return result;
 }
 
@@ -21,12 +28,11 @@ int[] CreateInfo()
     return result;
 }
 
-int[] FillInfo(int[] array, int num)
+int[] FillInfo(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = generator.Next(num/2 + 1);
-        num -= array[i];
+        array[i] = generator.Next(1, 5);
     }
     return array;
 }
@@ -66,13 +72,13 @@ int[] DataDiv(int[] dat, int[] inf)
 
     return result;
 }
+int[] info = CreateInfo();
+info = FillInfo(info);
 
-int[] data = CreateData();
+
+int[] data = CreateData(info);
 data = FillData(data);
 Console.WriteLine($"Числа в двоичном виде: {String.Join(", ", data)}");
-
-int[] info = CreateInfo();
-info = FillInfo(info, data.Length);
 Console.WriteLine($"Раделители: {String.Join(", ", info)}");
 
 Console.WriteLine($"Итоговый массив десятичных чисел: {String.Join(", ", DataDiv(data, info))}");
